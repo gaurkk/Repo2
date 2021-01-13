@@ -1,0 +1,84 @@
+Download weblogic 12c from oracle web site
+********************Weblogic Installation *****************************
+1:let say download file is on C:/Download/
+2:Extract download file :
+3:You will be have fmw_12.2.1.3.0_wls.jar file 
+
+NOTE :Please set Java class path 
+   1:Go to Advance System setting 
+   2:Click on Enviroment Variable
+   3:On System variable 
+         Add new varibale  "JAVA_HOME" set value as "JDK/bin"  
+		 ex:C:\Program Files\Java\jdk1.8.0_221
+		
+		
+		 Select Path variable and click edit 
+		 append  values ;%JAVA_HOME%\bin
+		 
+Or if you are 
+
+4:if you are already in weblogic download folder 
+5:Open the weblogic download path in Cammand prompt
+6:set java path as below
+   set path="C:\Program Files\Java\jdk1.8.0_221\bin"
+   
+7:after on same cammand promt type
+    java -jar fmw_12.2.1.3.0_wls.jar
+	
+8:You can see Weblogic installation logs on command prompt
+
+9:Weblogic Installation modal pop ups
+
+10:please proceed with "Skip auto update"
+
+11:click next and proceed with 100% installation .
+
+NOTE:Better to keep Weblogic installation path on C:\Oracle\Middleware.....
+
+a:Dont go for AUTO launch , click on finish 
+
+12:go to "C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin" open this on cammand prompt
+
+13:if  java home is not set 
+    for WIndow 7 and 10 system 
+Enter : set path=C:\Program Files\Java\jdk1.8.0_221\bin
+        then 
+		enter  : config.cmd
+
+14:Weblogic modal comes to set Domain 
+
+*******************************************Configuring the WebLogic Maven Plug-In ****************************************
+
+
+1: Download apache maven (apache-maven-3.6.2)
+
+2: Install the Oracle Maven sync plug-in  
+
+3 :Go to install oracle home folder path  "C:\Oracle\Middleware\Oracle_Home\oracle_common\plugins\maven\com\oracle\maven\oracle-maven-sync\12.2.1"
+
+4:set maven path as 
+
+  set path="C:\HARDROCK\APPS\apache-maven-3.6.2\bin"  ---mention where you apache maven folderin you local machine
+
+5:enter maven cammand 
+
+ mvn install:install-file -DpomFile=oracle-maven-sync-12.2.1.pom -Dfile=oracle-maven-sync-12.2.1.jar
+ 
+6:enter maven cammand
+
+  mvn com.oracle.maven:oracle-maven-sync:push -DoracleHome=c:\oracle\middleware\oracle_home\
+  
+  mvn help:describe -DgroupId=com.oracle.maven -DartifactId=oracle-maven-sync
+
+Please wait for few min , let download all weblogic maven dependency from maven central repository
+
+
+**********************************Weblogic domain creation***********************************************************************
+
+
+
+
+
+
+
+
